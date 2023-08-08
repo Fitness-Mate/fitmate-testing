@@ -18,7 +18,6 @@ const SignupProfile = () => {
         return value[1] === true;
       }).length === 5
     ) {
-      navigate(`bodyinfo`);
     }
 
     // 모든 유효성 검사 + 이메일 중복 확인을 만족해야 다음으로 버튼 활성화
