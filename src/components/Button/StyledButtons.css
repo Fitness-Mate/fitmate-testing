@@ -1,15 +1,15 @@
 .Button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 3px;
-	border-radius: 12px;
-	font-family: Pretendard;
-	font-size: 22px;
-	font-weight: 600;
-	cursor: pointer;
-	
-	&:hover {
-		opacity: 0.5;
-	}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  border-radius: 12px;
+  font-family: Pretendard;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }

@@ -4,10 +4,12 @@ import React from "react";
 import * as S from "./StyledButton";
 import "./StyledButtons.css";
 
-function MiddleButton({ children }) {
-	return (
-			<S.MiddleButton className="Button">{ children }</S.MiddleButton>
-	);
+function MiddleButton({ children, handleSubmit }) {
+  return (
+    <S.MiddleButton className="Button" onClick={handleSubmit}>
+      {children}
+    </S.MiddleButton>
+  );
 }
 
 export default MiddleButton;

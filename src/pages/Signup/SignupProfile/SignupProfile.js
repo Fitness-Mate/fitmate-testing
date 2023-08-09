@@ -12,12 +12,14 @@ const SignupProfile = () => {
   const isValidState = useRecoilValue(validationState);
 
   // 제출
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (
       Object.entries(isValidState).filter(([key, value]) => {
         return value[1] === true;
       }).length === 5
     ) {
+      navigate(`bodyinfo`);
     }
 
     // 모든 유효성 검사 + 이메일 중복 확인을 만족해야 다음으로 버튼 활성화
@@ -25,10 +27,10 @@ const SignupProfile = () => {
 
   return (
     <S.SignupContainer>
-      <form className="profileForm">
-        <S.SignupTitle>
-          <S.TitleEmphasis>회원정보</S.TitleEmphasis>를 입력해주세요.
-        </S.SignupTitle>
+      <S.SignupTitle>
+        <S.TitleEmphasis>회원정보</S.TitleEmphasis>를 입력해주세요.
+      </S.SignupTitle>
+      <S.ProfileInputcontainer>
         <ProfileInput
           placeholder="이름을 입력해주세요 (2자리 이상)"
           name="username"
@@ -50,10 +52,10 @@ const SignupProfile = () => {
         >
           비밀번호
         </ProfileInput>
-      </form>
-      <BigButton className="nextButton" handleSubmit={handleSubmit}>
-        다음으로
-      </BigButton>
+      </S.ProfileInputcontainer>
+      <S.ButtonContainer>
+        <BigButton handleSubmit={handleSubmit}>다음으로</BigButton>
+      </S.ButtonContainer>
     </S.SignupContainer>
   );
 };

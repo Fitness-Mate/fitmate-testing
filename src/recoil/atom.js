@@ -16,6 +16,7 @@ export const validationState = atom({
     password: ["", false, false],
     password2: ["", false, false],
     birthdate: ["", false, false],
+    sex: ["", false, false],
     height: ["", false, false],
     weight: ["", false, false],
   },

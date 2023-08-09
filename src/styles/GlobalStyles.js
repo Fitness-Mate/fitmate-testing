@@ -34,12 +34,17 @@ ${reset}
         border: 0;
         background: transparent;
         cursor: pointer;
+        outline:none;
     }
     // 입력창 클릭 시 테두리, 흰 배경 제거
     input{
         outline:none;
         border:none;
         background:none;
+        &:focus{
+            outline:none;
+     
+        }
     }
 `;
 

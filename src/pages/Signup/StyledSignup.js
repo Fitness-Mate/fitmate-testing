@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-export const SignupContainer = styled.div`
+export const SignupContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 140px;
   .recommendText {
     color: #555;
     font-size: 22px;
@@ -19,11 +18,7 @@ export const SignupContainer = styled.div`
     height: 274px;
     margin-top: 60px;
   }
-  .nextButton {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+
   .profileForm {
     display: flex;
     gap: 12px;
@@ -64,32 +59,37 @@ export const TitleEmphasis = styled.span`
   font-weight: 700;
 `;
 
-// Form 태그로 인해 사용 X
-export const ProfileContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
-
 export const BodyInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  .genderSelect {
+  .sexSelect {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 34px;
+    .bodyInfoWarning {
+      color: #eb444c;
+      font-size: 16px;
+    }
   }
 
-  .genderList {
+  .sexList {
     display: flex;
     gap: 5px;
   }
 `;
-export const GenderItem = styled.button`
+
+export const ProfileInputcontainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const SexItem = styled.button`
   border-radius: 16px;
-  background: ${({ isSelected }) => (isSelected ? "#F5F6F7" : "#FFF")};
+  background: ${({ sex }) => (sex ? "#F5F6F7" : "#FFF")};
   display: flex;
   width: 126px;
   height: 126px;
@@ -99,14 +99,14 @@ export const GenderItem = styled.button`
   flex-direction: column;
   gap: 8px;
 
-  .genderImg {
+  .sexImg {
     width: 60px;
     height: 60px;
   }
 `;
 
-export const GenderName = styled.span`
-  color: ${({ isSelected }) => (isSelected ? "#2f3233" : "#9A9798")};
+export const SexName = styled.span`
+  color: ${({ sex }) => (sex ? "#2f3233" : "#9A9798")};
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
@@ -150,4 +150,9 @@ export const BodyCompositionInputList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+`;
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 153px;
 `;

@@ -4,10 +4,12 @@ import React from "react";
 import * as S from "./StyledButton";
 import "./StyledButtons.css";
 
-function SmallButton({ children }) {
-	return (
-			<S.SmallButton className="Button">{ children }</S.SmallButton>
-	);
+function SmallButton({ children, handleSubmit }) {
+  return (
+    <S.SmallButton className="Button" onClick={handleSubmit}>
+      {children}
+    </S.SmallButton>
+  );
 }
 
 export default SmallButton;
