@@ -157,7 +157,7 @@ export const userPasswordAPI = axios.create({
 
 export const userIdVerifyAPI = axios.create({
   method: "post",
-  baseURL: "/api/user/verify/email",
+  baseURL: "/user/verify/email",
   withCredentials: true,
 });
 
