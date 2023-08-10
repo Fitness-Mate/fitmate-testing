@@ -1,7 +1,7 @@
 import * as S from "./StyledProfileInput";
 import { userIdVerifyAPI } from "../../apis/API";
 import { EmailState, validationState } from "../../recoil/atom";
-import ProfileInputContent from "./ProfileInputContet";
+import ProfileInputContent from "./ProfileInputContent";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useState } from "react";
 
@@ -16,17 +16,15 @@ const ProfileInput = ({ placeholder, children, name }) => {
   // 이메일 중복 체크
   const [isEmailState, setIsEmailState] = useRecoilState(EmailState);
   // 서버로부터 이메일 중복확인 + 유효식 검사
-  const emailOk = (isVerified) => {
-    setIsEmailState((pre) => ({
-      ...pre,
-      isVerified,
-    }));
+  const emailduplicateCheck = (isVerified) => {
+    setIsEmailState(isVerified);
   };
-
   // 서버로 부터 이메일 중복 체크
-  const duplicateCheck = async () => {
-    if (isValidState.email[0] !== "") {
-      const verifyResponse = await userIdVerifyAPI.post(isValidState.email[0]);
+  const handleEmail = async () => {
+    if (isValidState.loginEmail[0] !== "") {
+      const verifyResponse = await userIdVerifyAPI.post(
+        isValidState.loginEmail[0]
+      );
       if (verifyResponse.data === "ok") {
         return true;
       }
@@ -35,7 +33,10 @@ const ProfileInput = ({ placeholder, children, name }) => {
   };
 
   return (
-    <S.ProfileInputContainer isValidState={isValidState.email[1]}>
+    <S.ProfileInputContainer
+      isValidState={isValidState.loginEmail[1]}
+      isEmailState={isEmailState}
+    >
       <S.InputName>
         {children}
         <span className="essentialSymbol"> *</span>
@@ -47,15 +48,15 @@ const ProfileInput = ({ placeholder, children, name }) => {
         isFocused={isFocused}
         setIsFocused={setIsFocused}
       />
-      {name === "email" && (
+      {name === "loginEmail" && (
         <button
           className="duplicateButton"
           type="button"
           onClick={(e) => {
             e.preventDefault();
             // 중복 확인(Promise)
-            duplicateCheck().then((isVerified) => {
-              emailOk(isVerified);
+            handleEmail().then((isVerified) => {
+              emailduplicateCheck(isVerified);
             });
           }}
         >
@@ -75,10 +76,16 @@ const ProfileInput = ({ placeholder, children, name }) => {
       {/* 이메일은 중복체크 까지 해야 함 */}
       {!isFocused ? (
         isValidState[name][1] ? (
-          name === "email" && isEmailState ? (
-            <span className="profileInputChecking">
-              사용 가능한 이메일입니다
-            </span>
+          name === "loginEmail" ? (
+            isEmailState ? (
+              <span className="profileInputChecking">
+                사용 가능한 이메일입니다
+              </span>
+            ) : (
+              <span className="profileInputWarning">
+                이메일 중복확인을 하지 않았거나 중복된 이메일입니다
+              </span>
+            )
           ) : (
             ""
           )

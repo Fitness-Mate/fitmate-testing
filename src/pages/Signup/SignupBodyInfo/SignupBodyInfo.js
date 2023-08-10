@@ -37,14 +37,14 @@ const SignupBodyInfo = () => {
     if (sex[0] === 1) {
       setIsValidState((pre) => ({
         ...pre,
-        sex: ["male", true, isValidState.sex[2]],
+        sex: ["남성", true, isValidState.sex[2]],
       }));
     }
     // 여성
     else if (sex[1] === 1) {
       setIsValidState((pre) => ({
         ...pre,
-        sex: ["female", true, isValidState.sex[2]],
+        sex: ["여성", true, isValidState.sex[2]],
       }));
     }
   };

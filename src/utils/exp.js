@@ -1,16 +1,16 @@
 const ValidateTest = (name) => {
   const usernameExp = /^[가-힣]{2,10}$/;
   const passwordExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-  const birthdateExp = /^\d{4}-\d{2}-\d{2}$/;
-  const emailExp = /^(.+)@(\S+)$/;
+  const birthDateExp = /^\d{4}-\d{2}-\d{2}$/;
+  const loginEmailExp = /^(.+)@(\S+)$/;
   const bodyinfoExp = /^\d{2,3}$/;
 
   switch (name) {
-    case "username":
+    case "userName":
       return usernameExp;
 
-    case "birthdate":
-      return birthdateExp;
+    case "birthDate":
+      return birthDateExp;
 
     case "password":
       return passwordExp;
@@ -18,8 +18,8 @@ const ValidateTest = (name) => {
     case "password2":
       return passwordExp;
 
-    case "email":
-      return emailExp;
+    case "loginEmail":
+      return loginEmailExp;
 
     case "height":
       return bodyinfoExp;

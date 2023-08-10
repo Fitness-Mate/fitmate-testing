@@ -10,4 +10,4 @@
 
 ## 주소
 
-https://fitmate-test.vercel.app/
+https://fitmate-testing.vercel.app/

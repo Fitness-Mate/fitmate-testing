@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const SignupContainer = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 62px;
+  gap: 36px;
   .recommendText {
     color: #555;
     font-size: 22px;
@@ -24,6 +26,12 @@ export const SignupContainer = styled.form`
     gap: 12px;
     flex-direction: column;
   }
+`;
+
+export const SignupTitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `;
 
 export const SignupTitle = styled.span`
@@ -110,14 +118,6 @@ export const SexName = styled.span`
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
-`;
-
-export const SignupTitleContainer = styled.div`
-  display: flex;
-  padding: 0px 76px 39px 0px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
 `;
 
 export const SignupTextContainer = styled.div`

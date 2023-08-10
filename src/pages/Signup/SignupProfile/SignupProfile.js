@@ -22,7 +22,7 @@ const SignupProfile = () => {
       navigate(`bodyinfo`);
     }
 
-    // 모든 유효성 검사 + 이메일 중복 확인을 만족해야 다음으로 버튼 활성화
+    // 모든 유효성 검사 + 이메일 중복 확인을 만족해야 다음 페이지로 넘어감
   };
 
   return (
@@ -33,17 +33,17 @@ const SignupProfile = () => {
       <S.ProfileInputcontainer>
         <ProfileInput
           placeholder="이름을 입력해주세요 (2자리 이상)"
-          name="username"
+          name="userName"
         >
           이름
         </ProfileInput>
         <ProfileInput
           placeholder="생년월일을 입력해주세요 ex) 1998-06-16"
-          name="birthdate"
+          name="birthDate"
         >
           생년월일
         </ProfileInput>
-        <ProfileInput placeholder="이메일을 입력해주세요" name="email">
+        <ProfileInput placeholder="이메일을 입력해주세요" name="loginEmail">
           이메일
         </ProfileInput>
         <ProfileInput
