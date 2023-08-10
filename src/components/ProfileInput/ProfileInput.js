@@ -19,6 +19,7 @@ const ProfileInput = ({ placeholder, children, name }) => {
   const emailduplicateCheck = (isVerified) => {
     setIsEmailState(isVerified);
   };
+  console.log(process.env);
   // 서버로 부터 이메일 중복 체크
   const handleEmail = async () => {
     if (isValidState.loginEmail[0] !== "") {

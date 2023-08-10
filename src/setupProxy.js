@@ -1,8 +1,14 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
+const dotenv = require("dotenv");
+
+// 환경변수 로드
+dotenv.config();
+
+const API_TARGET = process.env.REACT_APP_DOMAIN;
 module.exports = (app) => {
   app.use(
     createProxyMiddleware("/api", {
-      target: "http://43.200.20.25:8080",
+      target: API_TARGET,
       changeOrigin: true,
       pathRewrite: { "^/api": "" },
     })
