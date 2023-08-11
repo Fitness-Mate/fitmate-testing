@@ -43,7 +43,7 @@ const SignupBodyFigure = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
-      Object.entries(isValidState).filter(([key, value]) => {
+      Object.entries(isValidState)?.filter(([key, value]) => {
         return value[1] === true;
       }).length === 12
     ) {
@@ -78,7 +78,7 @@ const SignupBodyFigure = () => {
         </S.SignupTitle>
       </S.SignupTitleContainer>
       <S.SignupTextContainer>
-        {categorylist.map((item, index) => {
+        {categorylist?.map((item, index) => {
           return (
             <TextCheckbox
               key={index}

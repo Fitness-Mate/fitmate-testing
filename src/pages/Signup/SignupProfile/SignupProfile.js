@@ -15,7 +15,7 @@ const SignupProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      Object.entries(isValidState).filter(([key, value]) => {
+      Object.entries(isValidState)?.filter(([key, value]) => {
         return value[1] === true;
       }).length === 5
     ) {
