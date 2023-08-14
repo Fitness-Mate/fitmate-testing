@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const ProfileInputContainer = styled.div`
   width: 433px;
   height: 116px;
@@ -9,11 +10,11 @@ export const ProfileInputContainer = styled.div`
 
   // 경고 문구
   .profileInputWarning {
-    color: #eb444c;
+    color: ${({ theme }) => theme.Error};
     font-size: 16px;
   }
   .profileInputChecking {
-    color: #0b98ff;
+    color: ${({ theme }) => theme.Brand};
     font-size: 16px;
     font-weight: 500;
   }
@@ -21,7 +22,7 @@ export const ProfileInputContainer = styled.div`
     opacity: ${({ isValidState }) => (isValidState ? "1" : "0.3")};
     cursor: ${({ isValidState }) => (isValidState ? "pointer" : "default")};
     position: absolute;
-    color: #0b98ff;
+    color: ${({ theme }) => theme.Brand};
     font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.34px;
@@ -33,10 +34,10 @@ export const ProfileInputContainer = styled.div`
 `;
 
 export const InputName = styled.span`
-  color: #000;
+  color: ${({ theme }) => theme.Black};
   font-size: 20px;
   .essentialSymbol {
-    color: #eb444c;
+    color: ${({ theme }) => theme.Error};
     font-size: 18px;
   }
 `;
@@ -46,12 +47,12 @@ export const InputName = styled.span`
 
 export const ProfileInputContentWrapper = styled.input`
   &::-webkit-input-placeholder {
-    color: #9a9798;
+    color: ${({ theme }) => theme.Gray50};
   }
   border-radius: 10px;
   padding: 14px;
-  background: #f5f6f7;
+  background: ${({ theme }) => theme.Gray10};
   width: 100%;
-  color: #9a9798;
+  color: ${({ theme }) => theme.Gray50};
   font-size: 18px;
 `;

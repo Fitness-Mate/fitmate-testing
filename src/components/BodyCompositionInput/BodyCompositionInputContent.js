@@ -1,14 +1,25 @@
 import { useState } from "react";
 import * as S from "./StyledBodyCompositionInput";
+import { useRecoilState } from "recoil";
+import { validationState } from "../../recoil/atom";
 
-const BodyCompositionInputContent = ({ children, bodypart }) => {
+const BodyCompositionInputContent = ({ children, bodypart, name }) => {
   const [isClicked, setIsClicked] = useState(false);
+
+  const [isValidState, setIsValidState] = useRecoilState(validationState);
+
+  const handleChange = (e) => {
+    const value = e.currentTarget.value;
+    const name = e.target.name;
+  };
+
   return (
     <S.BodyCompositionInputContentContainer>
       <span className="bodypart">{`${bodypart} ${children}`}</span>
       <input
         className="inputContent"
-        placeholder={isClicked === true ? "" : "공식"}
+        name={name}
+        placeholder={isClicked ? "" : "공식"}
         // 클릭했을 때
         onFocus={() => {
           setIsClicked(true);

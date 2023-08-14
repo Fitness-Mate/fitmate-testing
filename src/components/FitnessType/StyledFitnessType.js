@@ -11,13 +11,13 @@ export const CardContainer = styled.div`
     left: 22px;
     top: 20px;
     border-radius: 10px;
-    background: #d0ebff;
+    background: ${({ theme }) => theme.BrandLight};
     display: flex;
     padding: 6px 13px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    color: #0b98ff;
+    color: ${({ theme }) => theme.Brand};
     font-size: 12px;
     font-weight: 700;
     letter-spacing: -0.24px;
@@ -28,18 +28,18 @@ export const CardContainer = styled.div`
     height: 145px;
     padding: 24px 10px 20px 16px;
     border-radius: 0px 0px 16px 16px;
-    background: #f5f6f7;
+    background: ${({ theme }) => theme.Gray10};
     display: flex;
     flex-direction: column;
     gap: 7px;
     .fitnessTitle {
-      color: #2f3233;
+      color: ${({ theme }) => theme.Black};
       font-size: 24px;
       font-weight: 700;
       letter-spacing: -0.48px;
     }
     .fitnessExplain {
-      color: #555;
+      color: ${({ theme }) => theme.Gray80};
       font-size: 16px;
       font-weight: 600;
       letter-spacing: -0.32px;

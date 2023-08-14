@@ -30,7 +30,7 @@ const SignupBodyFigure = () => {
       ...pre,
       upperBodyFat: [categorylist[idx][1][0], true, false],
       lowerBodyFat: [categorylist[idx][1][1], true, false],
-      upplerMuscleMass: [categorylist[idx][1][2], true, false],
+      upperMuscleMass: [categorylist[idx][1][2], true, false],
       lowerMuscleMass: [categorylist[idx][1][3], true, false],
     }));
   };
@@ -53,6 +53,10 @@ const SignupBodyFigure = () => {
         if (key !== "password2") {
           submission[key] = isValidState[key][0];
         }
+        if (key === "birthDate") {
+          console.log(new Date());
+          submission[key] = new Date();
+        }
         if (key === "height" || key === "weight") {
           submission[key] = Number(isValidState[key][0]);
         }
@@ -60,6 +64,7 @@ const SignupBodyFigure = () => {
 
       const response = await userPostAPI.post("", submission);
       if (response.data === "ok") {
+        localStorage.setItem("Jwt", "tmp");
         navigate("/signup/complete", { replace: false }); // 절대 경로로 이동
       } else {
         console.log("회원가입 오류");

@@ -3,13 +3,9 @@
 import React from "react";
 import * as S from "./StyledButton";
 
-function BeforeButton({ backcolor, handleSubmit }) {
+function BeforeButton({ handleSubmit }) {
   return (
-    <S.BeforeButton
-      className="Button"
-      backcolor={backcolor}
-      onClick={handleSubmit}
-    >
+    <S.BeforeButton className="Button" onClick={handleSubmit}>
       이전
     </S.BeforeButton>
   );

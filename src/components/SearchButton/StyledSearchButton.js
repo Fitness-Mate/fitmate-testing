@@ -1,10 +1,10 @@
 import styled from "styled-components";
 export const SearchButtonWrapper = styled.button`
   border-radius: 12px;
-  background: #fff;
+  background: ${({ theme }) => theme.White};
   padding: 10px 14px;
 
-  color: #2f3233;
+  color: ${({ theme }) => theme.Black};
   font-size: 15px;
   font-weight: 700;
   line-height: 150%;
@@ -12,7 +12,7 @@ export const SearchButtonWrapper = styled.button`
 
   &:hover {
     border-radius: 12px;
-    background: #f5f6f7;
-    color: #0a89e5;
+    background: ${({ theme }) => theme.Gray10};
+    color: ${({ theme }) => theme.Brand};
   }
 `;

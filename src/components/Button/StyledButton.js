@@ -28,11 +28,11 @@ export const MiddleButton = styled.button`
 
 export const SmallButton = styled.button`
   width: 204px;
-  height: 62px;
   padding: 22px 24px;
+  height: 54px;
 
-  background: ${({ theme }) => theme.Brand};
-  color: ${({ theme }) => theme.White};
+  background: ${theme.Brand};
+  color: ${theme.White};
 `;
 
 // < 이전 버튼 >
@@ -43,8 +43,8 @@ export const BeforeButton = styled.button`
   padding: 22px 10px;
   font-weight: 700;
 
-  background: ${(props) => props.backcolor || props.theme.Gray10};
-  color: ${({ theme }) => theme.Brand};
+  background: ${theme.White};
+  color: ${theme.Brand};
 `;
 
 // < 목록 버튼 >
@@ -58,6 +58,6 @@ export const ListButton = styled.button`
   border-radius: 16px;
   font-size: 17px;
 
-  background: ${({ theme }) => theme.Gray10};
-  color: ${({ theme }) => theme.Black};
+  background: ${theme.Gray10};
+  color: ${theme.Black};
 `;
