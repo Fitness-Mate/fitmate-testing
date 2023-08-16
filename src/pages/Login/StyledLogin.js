@@ -8,9 +8,8 @@ export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
-  top: 135.5px;
   display: flex;
+	font-family: "Pretendard";
 `;
 
 export const Title = styled.h1`
@@ -34,7 +33,6 @@ export const LoginInput = styled.input`
   border: 3px solid;
   border-color: ${({ theme }) => theme.Gray10};
   border-radius: 10px;
-  font-family: "Pretendard";
   padding: 14px;
   font-size: 18px;
   font-weight: 500;

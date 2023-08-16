@@ -6,7 +6,7 @@ import "./StyledButtons.css";
 
 function ListButton({ children }) {
 	return (
-			<S.ListButton className="Button">{ children }</S.ListButton>
+			<S.ListButtonWrapper className="Button">{ children }</S.ListButtonWrapper>
 	);
 }
 

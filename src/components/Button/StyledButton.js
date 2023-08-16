@@ -15,7 +15,7 @@ export const BigButtonWrapper = styled.button`
 
 // < 가로 길이가 중간인 버튼 >
 
-export const MiddleButton = styled.button`
+export const MiddleButtonWrapper = styled.button`
   width: 294px;
   height: 62px;
   padding: 22px 24px;
@@ -37,7 +37,7 @@ export const SmallButton = styled.button`
 
 // < 이전 버튼 >
 
-export const BeforeButton = styled.button`
+export const BeforeButtonWrapper = styled.button`
   width: 139px;
   height: 62px;
   padding: 22px 10px;

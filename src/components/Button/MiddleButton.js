@@ -6,9 +6,9 @@ import "./StyledButtons.css";
 
 function MiddleButton({ children, handleSubmit }) {
   return (
-    <S.MiddleButton className="Button" onClick={handleSubmit}>
+    <S.MiddleButtonWrapper className="Button" onClick={handleSubmit}>
       {children}
-    </S.MiddleButton>
+    </S.MiddleButtonWrapper>
   );
 }
 

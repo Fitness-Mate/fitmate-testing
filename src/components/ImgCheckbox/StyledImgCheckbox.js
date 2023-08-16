@@ -3,7 +3,7 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
-export const ImgCheckboxContainer = styled.button`
+export const ImgCheckboxWrapper = styled.button`
   display: flex;
   width: 385px;
   height: 385px;

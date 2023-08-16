@@ -107,7 +107,7 @@ export const bodyPartPutAPI = axios.create({
 /**LoginInfo */
 export const loginPostAPI = axios.create({
   method: "post",
-  baseURL: "/api/login/",
+  baseURL: "/api/login",
   withCredentials: true,
 });
 

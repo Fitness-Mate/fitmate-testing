@@ -11,7 +11,7 @@ const ImgCheckbox = ({
   articleimg,
 }) => {
   return (
-    <S.ImgCheckboxContainer
+    <S.ImgCheckboxWrapper
       onClick={() => {
         handleClick(elementidx);
       }}
@@ -44,7 +44,7 @@ const ImgCheckbox = ({
           alt={articleimg}
         />
       </div>
-    </S.ImgCheckboxContainer>
+    </S.ImgCheckboxWrapper>
   );
 };
 

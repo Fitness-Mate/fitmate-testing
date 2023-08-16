@@ -2,23 +2,15 @@
 
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 export const Home = styled.div`
-  width: 100%;
-  margin-left: auto;
+	width: 80vw;
+	margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  position: relative;
-  align-items: center;
-  gap: 64px;
-  padding-bottom: 300px;
+	position: relative;
+	align-items: center;
+	gap: 64px;
 `;
 
 export const HomeContent = styled.div`
