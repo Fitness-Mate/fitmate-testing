@@ -2,19 +2,61 @@ import { useNavigate } from "react-router-dom";
 import { BodyCompositionInput } from "../../../components";
 import * as S from "../StyledSignup";
 import { BeforeButton, MiddleButton } from "../../../components/";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { validationState } from "../../../recoil/atom";
+import { userPostAPI } from "../../../apis/API";
 
 const SignupBodyFigureDirect = () => {
+  // 객체 초기화
+  useEffect(() => {
+    setIsValidState((pre) => ({
+      ...pre,
+      upperBodyFat: ["", false, false],
+      lowerBodyFat: ["", false, false],
+      upperMuscleMass: ["", false, false],
+      lowerMuscleMass: ["", false, false],
+    }));
+  }, []);
+
   const navigate = useNavigate();
+  const [isValidState, setIsValidState] = useRecoilState(validationState);
+  console.log(isValidState);
 
   const handleBackPage = (e) => {
     e.preventDefault();
     navigate(-1);
   };
 
-  const handleNextPage = (e) => {
-    // 조건 걸기
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/signup/complete", { replace: false }); // 절대 경로로 이동
+    if (
+      Object.entries(isValidState)?.filter(([key, value]) => {
+        return value[1] === true;
+      }).length === 12
+    ) {
+      // 회원가입 post 요청
+      const submission = {};
+      for (const key in isValidState) {
+        if (key !== "password2") {
+          submission[key] = isValidState[key][0];
+        }
+        if (key === "birthDate") {
+          submission[key] = new Date();
+        }
+        if (key === "height" || key === "weight") {
+          submission[key] = Number(isValidState[key][0]);
+        }
+      }
+
+      const response = await userPostAPI.post("", submission);
+      if (response.data === "ok") {
+        localStorage.setItem("Jwt", "tmp");
+        navigate("/signup/complete", { replace: false }); // 절대 경로로 이동
+      } else {
+        console.log("회원가입 오류");
+      }
+    }
   };
 
   return (
@@ -35,7 +77,7 @@ const SignupBodyFigureDirect = () => {
       </S.BodyCompositionInputList>
       <S.ButtonContainer>
         <BeforeButton handleSubmit={handleBackPage} />
-        <MiddleButton handleSubmit={handleNextPage}>가입 완료하기</MiddleButton>
+        <MiddleButton handleSubmit={handleSubmit}>가입 완료하기</MiddleButton>
       </S.ButtonContainer>
     </S.SignupContainer>
   );

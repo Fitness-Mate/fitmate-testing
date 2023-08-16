@@ -11,6 +11,11 @@ const BodyCompositionInputContent = ({ children, bodypart, name }) => {
   const handleChange = (e) => {
     const value = e.currentTarget.value;
     const name = e.target.name;
+    const updatedState = {
+      ...isValidState,
+      [name]: [Number(value), true, false],
+    };
+    setIsValidState(updatedState);
   };
 
   return (
@@ -20,6 +25,7 @@ const BodyCompositionInputContent = ({ children, bodypart, name }) => {
         className="inputContent"
         name={name}
         placeholder={isClicked ? "" : "공식"}
+        onChange={handleChange}
         // 클릭했을 때
         onFocus={() => {
           setIsClicked(true);
