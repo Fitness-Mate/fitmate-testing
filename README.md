@@ -8,6 +8,13 @@
 - 체형 직접입력 페이지 : url/signup/bodyfiguredirect
 - 완료 페이지 : url/signup/complement
 
+## 추천
+
+- 추천 시작 페이지 : url/recommend
+- 보조제/운동 선택 페이지 : url/recommend/selecttwo
+- 운동 부위 선택 페이지 : url/recommend/selectexercisepart
+- 운동 기구 선택 페이지 : url/recommend/fitnessequipment
+
 ## 주소
 
 https://fitmate-testing.vercel.app/
