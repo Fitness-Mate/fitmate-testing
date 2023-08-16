@@ -8,7 +8,7 @@ import theme from "../../styles/theme";
 import { Link } from "react-router-dom";
 import { loginPostAPI } from "../../apis/API";
 import { NoneScrollContainerWrapper } from "./NoneScrollContainer";
-import BigButton from "./../../components/Button/BigButton";
+import { BigButton } from "./../../components/";
 
 const Login = (props) => {
   // const [isEmailClicked, setIsEmailClicked] = useState(false);

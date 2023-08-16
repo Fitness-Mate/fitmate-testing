@@ -3,7 +3,7 @@ import confetti from "../../../assets/images/confetti.png";
 import * as S from "../StyledSignup";
 import { useRecoilState } from "recoil";
 import { validationState } from "../../../recoil/atom";
-import BigButton from "./../../../components/Button/BigButton";
+import { BigButton } from "./../../../components/";
 import theme from "../../../styles/theme";
 
 const SignupComplete = () => {

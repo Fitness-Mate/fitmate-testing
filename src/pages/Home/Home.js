@@ -4,8 +4,23 @@ import React from "react";
 import * as S from "./StyledHome";
 import HomeSecondImg1 from "../../assets/images/HomeSecondImg1.png";
 import HomeSecondImg2 from "../../assets/images/HomeSecondImg2.png";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useNavigate();
+
+  const handleRecommend = () => {
+    navigate("recommend");
+  };
+
+  const handleRecommendFitness = () => {
+    navigate("recommend/selectexercisepart");
+  };
+
+  // const handleRecommendProtein = () => {
+  //   navigate("recommend");
+  // };
+
   return (
     <S.Home>
       <S.HomeContent>
@@ -18,7 +33,9 @@ export const Home = () => {
           <div className="FirstBottom">
             FITMATE에서 제대로 운동하는 법을 알아보세요!
           </div>
-          <S.ShortcutButton>바로 추천받기</S.ShortcutButton>
+          <S.ShortcutButton onClick={handleRecommend}>
+            바로 추천받기
+          </S.ShortcutButton>
         </S.FirstContent>
       </S.HomeContent>
       <S.HomeContent>
@@ -33,7 +50,7 @@ export const Home = () => {
               <p>AI가 여러분의 정보를 바탕으로 추천해줘요</p>
             </div>
             <div className="SecondBottom">
-              <div className="ClickFrame">
+              <button className="ClickFrame" onClick={handleRecommendFitness}>
                 <p>운동 추천 바로 받기</p>
                 <svg
                   viewBox="0 0 29 30"
@@ -47,7 +64,7 @@ export const Home = () => {
                     />
                   </g>
                 </svg>
-              </div>
+              </button>
             </div>
           </S.SecondText>
           <S.SecondImg1>

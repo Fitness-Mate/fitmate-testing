@@ -64,7 +64,7 @@ export const SmallTextCheckboxWrapper = styled(TextCheckboxWrapper)`
   @media screen and (max-width: 800px) {
     width: 47%;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 660px) {
     width: 100%;
   }
 `;

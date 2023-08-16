@@ -5,7 +5,7 @@ import {
   SignupBodyInfo,
   SignupProfile,
   SignupComplete,
-} from "./index";
+} from "./";
 
 // 회원가입 페이지에 대한 정보를 모두 담는 컴포넌트
 

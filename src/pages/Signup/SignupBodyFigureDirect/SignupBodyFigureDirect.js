@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { BodyCompositionInput } from "../../../components";
 import * as S from "../StyledSignup";
-import BeforeButton from "../../../components/Button/BeforeButton";
-import MiddleButton from "../../../components/Button/MiddleButton";
+import { BeforeButton, MiddleButton } from "../../../components/";
 
 const SignupBodyFigureDirect = () => {
   const navigate = useNavigate();

@@ -164,6 +164,7 @@ export const SecondText = styled.div`
   }
 
   .ClickFrame {
+    padding: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -216,7 +217,6 @@ export const SecondImg2 = styled.div`
 `;
 
 export const ThirdContent = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
   gap: 30px;

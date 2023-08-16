@@ -1,9 +1,7 @@
 import * as S from "../StyledSignup";
 import { useNavigate } from "react-router-dom";
-import { TextCheckbox } from "../../../components/index";
 import rightarrow from "../../../assets/images/rightarrow.svg";
-import BeforeButton from "./../../../components/Button/BeforeButton";
-import MiddleButton from "../../../components/Button/MiddleButton";
+import { MiddleButton, BeforeButton, TextCheckbox } from "../../../components/";
 import { useRecoilState } from "recoil";
 import { validationState } from "../../../recoil/atom";
 import { useState } from "react";

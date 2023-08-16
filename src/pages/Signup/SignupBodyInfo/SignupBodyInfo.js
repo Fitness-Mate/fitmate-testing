@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import * as S from "./../StyledSignup";
-import { ProfileInput } from "../../../components";
 import { InputName } from "../../../components/ProfileInput/StyledProfileInput";
 import female from "../../../assets/images/female.png";
 import male from "../../../assets/images/male.png";
 import { useNavigate } from "react-router-dom";
-import BeforeButton from "../../../components/Button/BeforeButton";
-import MiddleButton from "./../../../components/Button/MiddleButton";
+import {
+  MiddleButton,
+  BeforeButton,
+  ProfileInput,
+} from "./../../../components/";
 import { useRecoilState } from "recoil";
 import { validationState } from "../../../recoil/atom";
 

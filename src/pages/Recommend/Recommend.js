@@ -1,24 +1,18 @@
 import { Route, Routes } from "react-router-dom";
 import {
-  RecommendInfo,
-  RecommendSelectTwo,
-  RecommendSelectExcercisePart,
-  RecommendSelectFitnesseEuipment,
-} from "./index";
+  RecommendHome,
+  RecommendCategory,
+  RecommendWorkout,
+  RecommendMachine,
+} from "./";
 
 const Recommend = () => {
   return (
     <Routes>
-      <Route path="/" element={<RecommendInfo />} />
-      <Route path="selecttwo" element={<RecommendSelectTwo />} />
-      <Route
-        path="selectexercisepart"
-        element={<RecommendSelectExcercisePart />}
-      />
-      <Route
-        path="fitnessequipment"
-        element={<RecommendSelectFitnesseEuipment />}
-      />
+      <Route path="/" element={<RecommendHome />} />
+      <Route path="category" element={<RecommendCategory />} />
+      <Route path="workout" element={<RecommendWorkout />} />
+      <Route path="machine" element={<RecommendMachine />} />
     </Routes>
   );
 };

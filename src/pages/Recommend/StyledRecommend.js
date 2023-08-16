@@ -21,6 +21,17 @@ export const RecommendTitle = styled.span`
   font-size: ${({ ftsize }) => ftsize};
   color: ${({ ftcolor }) => ftcolor};
   font-weight: ${({ ftweight }) => ftweight};
+  .hide {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+`;
+
+export const RecommendTitleHide = styled(RecommendTitle)`
+  @media screen and (max-width: 660px) {
+    display: none;
+  }
 `;
 
 export const RecommendTitleContainer = styled.div`
@@ -39,6 +50,10 @@ export const RecommendButtonContainer = styled.div`
 export const RecommendImgContainer = styled.div`
   display: flex;
   gap: 40px;
+  // 이미지 세로 한 줄로
+  @media (max-width: 830px) {
+    flex-direction: column;
+  }
 `;
 
 export const RecommendTextContainer = styled.div`

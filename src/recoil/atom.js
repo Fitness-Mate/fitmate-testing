@@ -26,6 +26,15 @@ export const validationState = atom({
   },
 });
 
+// 추천 카테고리
+export const recommendcategory = atom({
+  key: "recommendcategory",
+  default: {
+    보조제: [false, "protein"],
+    운동: [false, "fitness"],
+  },
+});
+
 // 운동 부위 리스트
 export const bodyPartList = atom({
   key: "bodyPartList",
@@ -42,8 +51,9 @@ export const bodyPartList = atom({
     복부: false,
   },
 });
-// 운동 부위 리스트
-export const fitnessequipment = atom({
+
+// 운동 기구 리스트
+export const machineList = atom({
   key: "fitnessequipment",
   default: {
     덤벨: false,
@@ -56,13 +66,5 @@ export const fitnessequipment = atom({
     덤벨프레스: false,
     어시스트: false,
     레그익스텐션: false,
-  },
-});
-
-export const recommendcategory = atom({
-  key: "recommendcategory",
-  default: {
-    보조제: [false, "protein"],
-    운동: [false, "fitness"],
   },
 });
