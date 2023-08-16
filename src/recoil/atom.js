@@ -65,6 +65,5 @@ export const machineList = atom({
     벤치: false,
     덤벨프레스: false,
     어시스트: false,
-    레그익스텐션: false,
   },
 });

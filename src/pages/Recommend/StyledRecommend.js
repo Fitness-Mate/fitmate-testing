@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import theme from "../../styles/theme";
 
 export const RecommendContainer = styled.div`
+  max-width: 842px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
