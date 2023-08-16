@@ -36,9 +36,33 @@ export const bodyPartList = atom({
     삼두: false,
     이두: false,
     엉덩이: false,
-    허벅지: false,
-    허벅지2: false,
+    허벅지앞: false,
+    허벅지뒤: false,
     종아리: false,
     복부: false,
+  },
+});
+// 운동 부위 리스트
+export const fitnessequipment = atom({
+  key: "fitnessequipment",
+  default: {
+    덤벨: false,
+    바벨: false,
+    스미스머신: false,
+    듀얼풀리케이블머신: false,
+    케틀: false,
+    렉: false,
+    벤치: false,
+    덤벨프레스: false,
+    어시스트: false,
+    레그익스텐션: false,
+  },
+});
+
+export const recommendcategory = atom({
+  key: "recommendcategory",
+  default: {
+    보조제: [false, "protein"],
+    운동: [false, "fitness"],
   },
 });

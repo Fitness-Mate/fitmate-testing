@@ -2,12 +2,13 @@ import { styled } from "styled-components";
 // 페이지를 공통적으로 감싸는 Wrapper
 export const MainLayoutWrapper = styled.div`
   margin: 0 auto;
-  width: 100%;
+  max-width: 1920px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 64px;
+  padding: 0 15%;
 `;
 
 export const Navbar = styled.div`

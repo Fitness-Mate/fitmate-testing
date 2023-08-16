@@ -3,6 +3,7 @@ import {
   RecommendInfo,
   RecommendSelectTwo,
   RecommendSelectExcercisePart,
+  RecommendSelectFitnesseEuipment,
 } from "./index";
 
 const Recommend = () => {
@@ -13,6 +14,10 @@ const Recommend = () => {
       <Route
         path="selectexercisepart"
         element={<RecommendSelectExcercisePart />}
+      />
+      <Route
+        path="fitnessequipment"
+        element={<RecommendSelectFitnesseEuipment />}
       />
     </Routes>
   );

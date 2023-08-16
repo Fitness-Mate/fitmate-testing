@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
 
 export const SignupContainer = styled.form`
   display: flex;

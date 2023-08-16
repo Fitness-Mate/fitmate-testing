@@ -6,6 +6,7 @@ const theme = {
   Gray70: "#707070",
   Gray50: "#9A9798",
   Gray30: "#C2C0C1",
+  Gray20: "#E7E7E7",
   Gray10: "#F4F4F4",
   White: "#FFFFFF",
   Brand: "#0B98FF",

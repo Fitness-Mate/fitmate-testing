@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Home = styled.div`
-  width: 1392px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;

@@ -1,4 +1,8 @@
-import { RecommendContainer, RecommendTitle } from "../StyledRecommend";
+import {
+  RecommendContainer,
+  RecommendTitle,
+  ButonWrapper,
+} from "../StyledRecommend";
 import thumbs from "../../../../src/assets/images/thumbs.png";
 import BigButton from "./../../../components/Button/BigButton";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +33,10 @@ const RecommendInfo = () => {
         </RecommendTitle>
       </div>
       <img src={thumbs} alt="따봉 이미지" className="goodImg" />
-      <BigButton handleSubmit={goNextPage}>추천 받으러 가기</BigButton>
+      {/* 가운데 정렬 버튼 Wrapper */}
+      <ButonWrapper>
+        <BigButton handleSubmit={goNextPage}>추천 받으러 가기</BigButton>
+      </ButonWrapper>
     </RecommendContainer>
   );
 };

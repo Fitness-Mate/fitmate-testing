@@ -1,5 +1,4 @@
 import { bodyPartAPI } from "../../../apis/API";
-import TextCheckbox from "../../../components/TextCheckbox/TextCheckbox";
 import theme from "./../../../styles/theme";
 import {
   RecommendButtonContainer,
@@ -13,6 +12,7 @@ import { bodyPartList } from "./../../../recoil/atom";
 import BeforeButton from "./../../../components/Button/BeforeButton";
 import { useNavigate } from "react-router-dom";
 import SmallButton from "./../../../components/Button/SmallButton";
+import SmallTextCheckbox from "./../../../components/TextCheckbox/SmallTextCheckbox";
 
 const RecommendSelectExcercisePart = () => {
   const navigate = useNavigate();
@@ -29,6 +29,15 @@ const RecommendSelectExcercisePart = () => {
     const newArr = Array(entries.length).fill(false);
     newArr[idx] = true;
     setIsBodyPartSelect(newArr);
+    const target = entries.find((key, value) => idx === value)[0];
+
+    const updatedExercisePart = Object.fromEntries(
+      Object.entries(isbodyPartListState).map(([key, value]) => [
+        key,
+        key === target,
+      ])
+    );
+    setIsbodyPartListState(updatedExercisePart);
   };
 
   const handleBackPage = () => {
@@ -55,14 +64,14 @@ const RecommendSelectExcercisePart = () => {
       <TextCheckboxContainer>
         {Object.entries(isbodyPartListState).map((item, index) => {
           return (
-            <TextCheckbox
+            <SmallTextCheckbox
               key={item}
               handleClick={handleSelect}
               isSelected={isBodyPartSelect[index]}
               elementidx={index}
             >
               {item}
-            </TextCheckbox>
+            </SmallTextCheckbox>
           );
         })}
       </TextCheckboxContainer>
