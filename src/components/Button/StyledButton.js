@@ -26,7 +26,7 @@ export const MiddleButtonWrapper = styled.button`
 
 // < 가로 길이가 짧은 버튼 >
 
-export const SmallButton = styled.button`
+export const SmallButtonWrapper = styled.button`
   width: 204px;
   padding: 22px 24px;
   height: 54px;
@@ -49,7 +49,7 @@ export const BeforeButtonWrapper = styled.button`
 
 // < 목록 버튼 >
 
-export const ListButton = styled.button`
+export const ListButtonWrapper = styled.button`
   display: inline-flex;
   width: auto;
   height: 44px;

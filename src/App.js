@@ -1,5 +1,4 @@
 import { React } from "react";
-import { LoginContextProvider } from "./Contexts/login-context";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import Navigator from "./routes/Navigator";
@@ -10,7 +9,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <RecoilRoot>
-            <Navigator />
+          <Navigator />
         </RecoilRoot>
       </div>
     </ThemeProvider>

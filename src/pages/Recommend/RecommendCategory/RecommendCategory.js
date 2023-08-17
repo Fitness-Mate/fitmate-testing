@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { SmallButton } from "../../../components/Button/index";
+import { SmallButton } from "../../../components/";
 import theme from "../../../styles/theme";
 import {
   RecommendButtonContainer,

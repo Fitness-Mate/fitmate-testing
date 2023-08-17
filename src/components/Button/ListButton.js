@@ -5,9 +5,9 @@ import * as S from "./StyledButton";
 import "./StyledButtons.css";
 
 function ListButton({ children }) {
-	return (
-			<S.ListButtonWrapper className="Button">{ children }</S.ListButtonWrapper>
-	);
+  return (
+    <S.ListButtonWrapper className="Button">{children}</S.ListButtonWrapper>
+  );
 }
 
 export default ListButton;

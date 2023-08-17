@@ -6,6 +6,7 @@ export { default as SearchButton } from "./SearchButton/SearchButton";
 export { default as ImgCheckbox } from "./ImgCheckbox/ImgCheckbox";
 export { default as TextCheckbox } from "./TextCheckbox/TextCheckbox";
 export { default as SmallTextCheckbox } from "./TextCheckbox/SmallTextCheckbox";
+export { default as Navbar } from "./Navbar/Navbar";
 // button
 export { default as BeforeButton } from "./Button/BeforeButton";
 export { default as BigButton } from "./Button/BigButton";

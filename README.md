@@ -11,9 +11,9 @@
 ## 추천
 
 - 추천 시작 페이지 : url/recommend
-- 보조제/운동 선택 페이지 : url/recommend/selecttwo
-- 운동 부위 선택 페이지 : url/recommend/selectexercisepart
-- 운동 기구 선택 페이지 : url/recommend/fitnessequipment
+- 보조제/운동 선택 페이지 : url/recommend/category
+- 운동 부위 선택 페이지 : url/recommend/workout
+- 운동 기구 선택 페이지 : url/recommend/machine
 
 ## 주소
 
