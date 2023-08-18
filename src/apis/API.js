@@ -105,18 +105,20 @@ export const bodyPartPutAPI = axios.create({
 });
 
 /**LoginInfo */
+
+// 로그인 요청
 export const loginPostAPI = axios.create({
   method: "post",
-  baseURL: "/api/login",
+  baseURL: "/api/auth/login",
   withCredentials: true,
 });
 
+// 로그아웃(토큰)
 export const logoutPutAPI = axios.create({
   method: "put",
-  baseURL: "/api/logout",
+  baseURL: "/api/auth/logout",
   withCredentials: true,
 });
-
 export const loginAdminPostAPI = axios.create({
   method: "post",
   baseURL: "/api/admin/login",
@@ -126,35 +128,42 @@ export const loginAdminPostAPI = axios.create({
 /**
  * User API
  */
+
+// 사용자 정보 조회(토큰)
 export const userAPI = axios.create({
   baseURL: "/api/user",
   withCredentials: true,
 });
 
+// 사용자 가입
 export const userPostAPI = axios.create({
   method: "post",
-  baseURL: "/api/user",
+  baseURL: "/api/user/auth",
   withCredentials: true,
 });
 
+// 사용자 정보 수정(토큰)
 export const userPutAPI = axios.create({
   method: "put",
   baseURL: "/api/user",
   withCredentials: true,
 });
 
+// 회원 탈퇴(토큰)
 export const userDeleteAPI = axios.create({
   method: "post",
   baseURL: "/api/user/delete",
   withCredentials: true,
 });
 
+// 사용자 비밀번호 수정(토큰)
 export const userPasswordAPI = axios.create({
   method: "post",
   baseURL: "/api/user/password",
   withCredentials: true,
 });
 
+// 회원 가입 시 email 중복 검사
 export const userIdVerifyAPI = axios.create({
   method: "post",
   baseURL: "/api/user/verify/email",

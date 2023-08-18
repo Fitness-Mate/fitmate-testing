@@ -30,7 +30,6 @@ export const NavbarContainer = styled.div`
   width: 100%;
   height: 64px;
   padding: 10px 40px;
-
   font-size: 15px;
   font-weight: 700;
   display: flex;
@@ -86,4 +85,15 @@ export const NavLoginButton = styled(NavButton)`
   background: ${theme.Brand};
   color: ${theme.White};
   display: block;
+`;
+
+export const NoneScrollContainerWrapper = styled.div`
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 `;

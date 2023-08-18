@@ -67,3 +67,8 @@ export const machineList = atom({
     어시스트: false,
   },
 });
+
+export const refreshTokenState = atom({
+  key: "refreshTokenState",
+  default: "",
+});

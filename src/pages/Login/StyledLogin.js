@@ -1,19 +1,18 @@
 // < 로그인 스타일 >
 
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 export const LoginContainer = styled.div`
-  width: 433px;
   margin: 0 auto;
+  padding-top: 135.5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
-	font-family: "Pretendard";
 `;
 
 export const Title = styled.h1`
-  color: ${({ theme }) => theme.Black};
+  color: ${theme.Black};
   font-size: 28px;
   font-weight: 700;
 `;

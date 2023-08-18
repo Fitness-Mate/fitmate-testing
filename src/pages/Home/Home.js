@@ -72,12 +72,12 @@ export const Home = () => {
             />
           </S.SecondImg2>
           <S.SecondText>
-            <div id="right" className="secondTop">
+            <span id="right" className="secondTop">
               보조제<p>먹고 싶은데</p>
-            </div>
-            <div id="right" className="secondTop">
+            </span>
+            <span id="right" className="secondTop">
               뭘 먹어야 할 지 모를 때
-            </div>
+            </span>
             <div className="secondMiddle">
               <p id="right">운동의 시작을 어떻게 해야할지 고민하지마세요</p>
               <p id="right">AI가 여러분의 정보를 바탕으로 추천해줘요</p>

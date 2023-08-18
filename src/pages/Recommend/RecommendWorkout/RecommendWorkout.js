@@ -15,16 +15,10 @@ import {
   SmallTextCheckbox,
   BeforeButton,
 } from "./../../../components/";
+import { userBodyPartAPI } from "../../../apis/API";
 
-const RecommendWorkout = () => {
+const RecommendWorkout = async () => {
   const navigate = useNavigate();
-
-  // 추후에 서버에서 받아와야 함 + 이름
-  // const response = bodyPartAPI.get("/list", {
-  //   headers: {
-  //     Authorization: "Bearer" + JSON.parse(localStorage.getItem("Jwt")),
-  //   },
-  // });
 
   // 부위 배열
   const [isBodyPartSelected, setIsBodyPartSelected] = useState([]);
