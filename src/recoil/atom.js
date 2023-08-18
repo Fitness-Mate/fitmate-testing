@@ -35,36 +35,10 @@ export const recommendcategory = atom({
   },
 });
 
-// 운동 부위 리스트
-export const bodyPartList = atom({
-  key: "bodyPartList",
+export const bodyPartState = atom({
+  key: "bodyPartState",
   default: {
-    어깨: false,
-    가슴: false,
-    등: false,
-    삼두: false,
-    이두: false,
-    엉덩이: false,
-    허벅지앞: false,
-    허벅지뒤: false,
-    종아리: false,
-    복부: false,
-  },
-});
-
-// 운동 기구 리스트
-export const machineList = atom({
-  key: "fitnessequipment",
-  default: {
-    덤벨: false,
-    바벨: false,
-    스미스머신: false,
-    듀얼풀리케이블머신: false,
-    케틀: false,
-    렉: false,
-    벤치: false,
-    덤벨프레스: false,
-    어시스트: false,
+    bodyPartKoreanName: [],
   },
 });
 

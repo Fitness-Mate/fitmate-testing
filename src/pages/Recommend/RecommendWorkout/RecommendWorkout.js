@@ -6,9 +6,7 @@ import {
   RecommendTitleHide,
   TextCheckboxContainer,
 } from "../StyledRecommend";
-import { useState } from "react";
-import { useRecoilState } from "recoil";
-import { bodyPartList } from "./../../../recoil/atom";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   SmallButton,
@@ -16,31 +14,40 @@ import {
   BeforeButton,
 } from "./../../../components/";
 import { userBodyPartAPI } from "../../../apis/API";
+import { useRecoilState } from "recoil";
+import { bodyPartState } from "../../../recoil/atom";
 
-const RecommendWorkout = async () => {
+const RecommendWorkout = () => {
   const navigate = useNavigate();
-
-  // 부위 배열
+  // 운동 기구 객체
+  const [selectedBodyPart, setSelectedBodyPart] = useRecoilState(bodyPartState);
+  // 운동 부위 배열
   const [isBodyPartSelected, setIsBodyPartSelected] = useState([]);
 
-  // 부위 객체(atom)
-  const [isBodyPartState, setIsBodyPartState] = useRecoilState(bodyPartList);
+  const fetchData = async () => {
+    const response = await userBodyPartAPI.get("", {
+      headers: {
+        Authorization: "Bearer " + JSON.parse(localStorage.getItem("Jwt")),
+      },
+    });
+    const newArr = response.data.bodyPartKoreanName.map((obj) => ({
+      ...obj,
+      isSelected: false,
+    }));
+    setIsBodyPartSelected(newArr);
+  };
+
+  // 최초 렌더링 시 부위 목록 받아옴
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // 부위 선택
   const handleSelect = (idx) => {
     // 배열 업데이트
     const newArr = [...isBodyPartSelected];
-    newArr[idx] = !newArr[idx];
+    newArr[idx].isSelected = !newArr[idx].isSelected;
     setIsBodyPartSelected(newArr);
-
-    // 객체 업데이트
-    const updatedExercisePart = Object.fromEntries(
-      Object.entries(isBodyPartState).map(([key, value], index) => [
-        key,
-        newArr[index],
-      ])
-    );
-    setIsBodyPartState(updatedExercisePart);
   };
 
   const handleBackPage = () => {
@@ -48,7 +55,19 @@ const RecommendWorkout = async () => {
   };
 
   const handleNextPage = () => {
-    // 선택했을때만 다음으로 넘어가도록
+    // 전역 객체 업데이트
+    const SelectedObj = {
+      bodyPartKoreanName: [],
+    };
+    const SelectedArr = isBodyPartSelected
+      .filter((item) => {
+        return item.isSelected;
+      })
+      .map((item) => {
+        SelectedObj.bodyPartKoreanName.push(item.koreanName);
+        return item.koreanName;
+      });
+    setSelectedBodyPart(SelectedObj);
     navigate("/recommend/machine");
   };
 
@@ -65,15 +84,15 @@ const RecommendWorkout = async () => {
         </RecommendTitleHide>
       </div>
       <TextCheckboxContainer>
-        {Object.entries(isBodyPartState).map((item, index) => {
+        {isBodyPartSelected.map((item, index) => {
           return (
             <SmallTextCheckbox
-              key={item}
+              key={item.koreanName}
               handleClick={handleSelect}
-              isSelected={isBodyPartSelected[index]}
+              isSelected={isBodyPartSelected[index].isSelected}
               elementidx={index}
             >
-              {item}
+              {item.koreanName}
             </SmallTextCheckbox>
           );
         })}

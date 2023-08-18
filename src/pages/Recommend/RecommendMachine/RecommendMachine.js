@@ -8,25 +8,41 @@ import {
   RecommendTitleContainer,
 } from "./../StyledRecommend";
 import theme from "./../../../styles/theme";
-import { useRecoilState } from "recoil";
-import { machineList } from "../../../recoil/atom";
 import {
   SmallButton,
   BeforeButton,
   SmallTextCheckbox,
 } from "./../../../components/";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { nonAdminMachineAPI } from "../../../apis/API";
+import { bodyPartState } from "../../../recoil/atom";
+import { useRecoilState } from "recoil";
 
 const RecommendMachine = () => {
   const navigate = useNavigate();
 
+  // 운동 기구 객체
+  const [selectedBodyPart, setSelectedBodyPart] = useRecoilState(bodyPartState);
   // 운동 기구 배열
   const [isMachineSelected, setIsMachineSelected] = useState([]);
 
-  // 운동 기구 객체(atom)
-  const [isMachineState, setIsMachineState] = useRecoilState(machineList);
+  const fetchData = async () => {
+    const response = await nonAdminMachineAPI.post("/list", selectedBodyPart, {
+      headers: {
+        Authorization: "Bearer " + JSON.parse(localStorage.getItem("Jwt")),
+      },
+    });
+    const newArr = response.data.map((obj, index) => ({
+      ...obj,
+      isSelected: false,
+    }));
+    setIsMachineSelected(newArr);
+  };
+  // 최초 렌더링 시 운동기구 목록 받아옴
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // 모르겠어요 클릭 상태
   const [isNotSelected, setIsNotSelected] = useState(false);
@@ -38,39 +54,22 @@ const RecommendMachine = () => {
   const handleSelect = (idx) => {
     // 배열 업데이트
     const newArr = [...isMachineSelected];
-    newArr[idx] = !newArr[idx];
+    newArr[idx].isSelected = !newArr[idx].isSelected;
     setIsMachineSelected(newArr);
-
-    // 객체 업데이트
-    const updatedFitnessEquipment = Object.fromEntries(
-      Object.entries(isMachineState).map(([key, value], index) => [
-        key,
-        newArr[index],
-      ])
-    );
-    setIsMachineState(updatedFitnessEquipment);
 
     // 모르겠어요 비활성화
     setIsNotSelected(false);
   };
 
-  // 전체 선택
-  const handleAllSelectInner = (allSelected) => {
-    return Object.fromEntries(
-      Object.entries(isMachineState).map(([key, value]) => [key, !allSelected])
-    );
-  };
-
   // 전체선택
   const handleAllSelect = () => {
-    const entries = Object.entries(isMachineState);
-    const newArr = Array(entries.length).fill(!isAllSelected);
-    const updatedFitnessEquipment = handleAllSelectInner(isAllSelected);
+    const newArr = isMachineSelected.map((item, index) => {
+      item.isSelected = !isAllSelected;
+      return item;
+    });
 
     // 전체 선택 state 반전
     setIsAllSelected(!isAllSelected);
-    // 객체 업데이트
-    setIsMachineState(updatedFitnessEquipment);
     // 배열 업데이트
     setIsMachineSelected(newArr);
     // 모르겠어요 해제
@@ -79,15 +78,13 @@ const RecommendMachine = () => {
 
   // 모르겠어요 클릭
   const handleReset = () => {
-    const entries = Object.entries(isMachineState);
-    const newArr = Array(entries.length).fill(false);
+    const newArr = isMachineSelected.map((obj) => ({
+      ...obj,
+      isSelected: false,
+    }));
     setIsMachineSelected(newArr);
     setIsNotSelected(!isNotSelected);
-    // 객체 -> 배열(순회) -> false -> 객체
-    const updatedFitnessEquipment = Object.fromEntries(
-      Object.entries(isMachineState).map(([key, value]) => [key, false])
-    );
-    setIsMachineState(updatedFitnessEquipment);
+
     setIsAllSelected(false);
   };
 
@@ -97,6 +94,7 @@ const RecommendMachine = () => {
 
   const handleNextPage = () => {
     // 선택했을때만 다음으로 넘어가도록
+
     navigate("/recommend/fitnessequipment");
   };
 
@@ -121,15 +119,15 @@ const RecommendMachine = () => {
             전체 선택하기
           </button>
           <BorderTextCheckboxInnerContainer>
-            {Object.entries(isMachineState).map((item, index) => {
+            {isMachineSelected.map((item, index) => {
               return (
                 <SmallTextCheckbox
-                  key={item}
+                  key={item.koreanName}
                   handleClick={handleSelect}
-                  isSelected={isMachineSelected[index]}
+                  isSelected={isMachineSelected[index].isSelected}
                   elementidx={index}
                 >
-                  {item}
+                  {item.koreanName}
                 </SmallTextCheckbox>
               );
             })}
