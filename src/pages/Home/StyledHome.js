@@ -28,6 +28,9 @@ export const FirstContent = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 20px;
+  border-radius: 16px;
+  background: #f9fbfe;
+  width: 100%;
 
   .firstTop {
     display: flex;

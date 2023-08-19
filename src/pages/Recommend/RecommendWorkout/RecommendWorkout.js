@@ -59,14 +59,13 @@ const RecommendWorkout = () => {
     const SelectedObj = {
       bodyPartKoreanName: [],
     };
-    const SelectedArr = isBodyPartSelected
-      .filter((item) => {
-        return item.isSelected;
-      })
-      .map((item) => {
+    isBodyPartSelected.forEach((item) => {
+      if (item.isSelected) {
         SelectedObj.bodyPartKoreanName.push(item.koreanName);
-        return item.koreanName;
-      });
+      }
+    });
+    console.log(SelectedObj);
+
     setSelectedBodyPart(SelectedObj);
     navigate("/recommend/machine");
   };

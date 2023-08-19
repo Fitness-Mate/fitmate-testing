@@ -27,8 +27,7 @@ ${reset}
     }
     body{
         line-height: 1;
-        background-color: white;
-        
+        background-color: white; 
     }
 
     ol, ul{

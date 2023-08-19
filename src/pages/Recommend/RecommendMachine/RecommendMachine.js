@@ -22,8 +22,10 @@ import { useRecoilState } from "recoil";
 const RecommendMachine = () => {
   const navigate = useNavigate();
 
-  // 운동 기구 객체
+  // 운동 부위 객체
   const [selectedBodyPart, setSelectedBodyPart] = useRecoilState(bodyPartState);
+
+  console.log(selectedBodyPart);
   // 운동 기구 배열
   const [isMachineSelected, setIsMachineSelected] = useState([]);
 
