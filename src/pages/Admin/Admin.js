@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./StyledAdmin";
-import { supplement_type } from "./../../types/Type";
 import { loginAdminPostAPI, supplementAPI } from "../../apis/API";
 import { AddModal } from "../../components/Modal/AddModal";
 
@@ -17,7 +16,6 @@ const SignIn = async () => {
 const Admin = () => {
   const [addmodal, setAddModal] = useState(false); // 추가 모달
   const [supplementBatch, setSupplementBatch] = useState([]); // 서버에 저장되어있는 supplement 객체
-  const [supplement, setSupplement] = useState(supplement_type); // 선택된 보충제
   const [supplementId, setSupplementId] = useState(""); // 선택된 보충제 id
   const [currentPage, setCurrentPage] = useState(1); // 페이지 이동
 
@@ -40,7 +38,6 @@ const Admin = () => {
     const fitData = supplementResponse.data.map((obj) => {
       // 받아온 데이터에 보충제 타입 추가
       return {
-        ...supplement_type,
         ...obj,
       };
     });

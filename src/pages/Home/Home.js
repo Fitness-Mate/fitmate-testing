@@ -1,6 +1,6 @@
 // < 홈 페이지 >
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./StyledHome";
 import HomeSecondImg1 from "../../assets/images/HomeSecondImg1.png";
 import HomeSecondImg2 from "../../assets/images/HomeSecondImg2.png";

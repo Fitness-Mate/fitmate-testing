@@ -1,15 +1,30 @@
 import { useNavigate } from "react-router-dom";
 import confetti from "../../../assets/images/confetti.png";
 import * as S from "../StyledSignup";
-import { useRecoilState } from "recoil";
-import { validationState } from "../../../recoil/atom";
 import { BigButton } from "./../../../components/";
 import theme from "../../../styles/theme";
+import { useEffect, useState } from "react";
+import { userAPI } from "../../../apis/API";
 
 const SignupComplete = () => {
   const navigate = useNavigate();
-  const [isValidState, setIsValidState] = useRecoilState(validationState);
+  const [userName, setUserName] = useState("");
 
+  // 사용자 이름 서버로부터 받아옴
+  const fetchData = async () => {
+    const response = await userAPI.get("", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
+    });
+    setUserName(response.data.userName);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // 회원 가입시 자동 로그인
   const GoHomePage = (e) => {
     e.preventDefault();
     navigate("/");
@@ -17,7 +32,7 @@ const SignupComplete = () => {
 
   const GoRecommendPage = (e) => {
     e.preventDefault();
-    navigate("/");
+    navigate("/recommend");
   };
 
   return (
@@ -25,7 +40,7 @@ const SignupComplete = () => {
       {/* 제목들 중 마지막 페이지만 가운데 정렬 -> 인라인으로 처리 */}
       <S.SignupTitle flex={true}>
         <S.TitleEmphasis>
-          {isValidState.userName}님
+          {userName}님
           <br />
           회원가입이 완료되셨습니다
         </S.TitleEmphasis>

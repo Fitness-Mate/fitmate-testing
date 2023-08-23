@@ -14,11 +14,12 @@ const SignupBodyFigure = () => {
   const [isCategorySelect, setIsCategorySelect] = useState(false);
 
   const categorylist = [
-    ["마른 편이에요", [1, 1, 1, 1]],
-    ["보통이에요", [2, 2, 2, 2]],
-    ["조금 통통한 편이에요", [3, 3, 3, 3]],
-    ["뚱뚱해요", [4, 4, 4, 4]],
+    ["마른 편이에요", [12, 12, 25, 25]],
+    ["보통이에요", [15, 15, 25, 25]],
+    ["조금 통통한 편이에요", [25, 25, 25, 25]],
+    ["뚱뚱해요", [35, 35, 25, 25]],
   ];
+  console.log(isValidState);
 
   const handleClick = (idx) => {
     const newArr = Array(categorylist.length).fill(false);
@@ -51,17 +52,27 @@ const SignupBodyFigure = () => {
         if (key !== "password2") {
           submission[key] = isValidState[key][0];
         }
-        if (key === "birthDate") {
-          submission[key] = new Date();
-        }
         if (key === "height" || key === "weight") {
           submission[key] = Number(isValidState[key][0]);
         }
       }
+      const res = await userPostAPI.post("", submission);
+      if (res.data.accessToken) {
+        const accessToken = res.data.accessToken;
+        const refreshToken = res.data.refreshToken;
+        // 토큰 저장
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        localStorage.setItem("rememberMe", false);
 
-      const response = await userPostAPI.post("", submission);
-      if (response.data === "ok") {
-        localStorage.setItem("Jwt", "tmp");
+        // 회원가입 객체 초기화
+        const updatedState = Object.keys(isValidState).reduce((acc, key) => {
+          acc[key] = ["", false];
+          return acc;
+        }, {});
+
+        setIsValidState(updatedState);
+
         navigate("/signup/complete", { replace: false }); // 절대 경로로 이동
       } else {
         console.log("회원가입 오류");

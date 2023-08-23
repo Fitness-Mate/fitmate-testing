@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "./../../styles/theme";
 
 export const SignupContainer = styled.form`
   display: flex;
@@ -9,10 +10,8 @@ export const SignupContainer = styled.form`
   gap: 36px;
 
   .recommendText {
-    color: ${({ theme }) => theme.Gray80};
-
+    color: ${theme.Gray80};
     font-size: 22px;
-    font-weight: 500;
   }
   .buttonContainer {
     display: flex;
@@ -53,19 +52,19 @@ export const SignupTitle = styled.span`
   font-weight: 700;
   .warningNoWrite {
     display: inline-block;
-    color: ${({ theme }) => theme.Gray80};
+    color: ${theme.Gray80};
     font-size: 22px;
     padding-top: 12px;
   }
   .congratu {
     display: inline-block;
-    color: ${({ theme }) => theme.Gray80};
+    color: ${theme.Gray80};
     font-size: 24px;
   }
 `;
 
 export const TitleEmphasis = styled.span`
-  color: ${({ theme }) => theme.Black};
+  color: ${theme.Black};
   font-size: 28px;
   font-weight: 700;
 `;
@@ -81,7 +80,7 @@ export const BodyInfoContainer = styled.div`
     gap: 8px;
     padding-top: 34px;
     .bodyInfoWarning {
-      color: ${({ theme }) => theme.Error};
+      color: ${theme.Error};
       font-size: 16px;
     }
   }
@@ -99,7 +98,7 @@ export const ProfileInputcontainer = styled.div`
 `;
 export const SexName = styled.span`
   transition: all 0.3s ease-out;
-  color: ${({ sex, theme }) => (sex ? theme.BrandDark : theme.Gray50)};
+  color: ${({ sex }) => (sex ? theme.BrandDark : theme.Gray50)};
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
@@ -108,7 +107,7 @@ export const SexName = styled.span`
 export const SexItem = styled.button`
   transition: all 0.3s ease-out;
   border-radius: 16px;
-  background: ${({ sex, theme }) => (sex ? theme.Gray10 : theme.White)};
+  background: ${({ sex }) => (sex ? theme.Gray10 : theme.White)};
   border: ${({ sex, theme }) =>
     sex ? `2px solid ${theme.Brand}` : `2px solid transparent`};
   display: flex;
@@ -124,12 +123,12 @@ export const SexItem = styled.button`
     height: 60px;
   }
   &:hover {
-    background: ${({ theme }) => theme.Gray10};
+    background: ${theme.Gray10};
     border: 2px solid
-      ${({ sex, theme }) => (sex ? `2px solid ${theme.Brand}` : theme.Gray30)};
+      ${({ sex }) => (sex ? `2px solid ${theme.Brand}` : theme.Gray30)};
   }
   &:hover ${SexName} {
-    color: ${({ sex, theme }) => (sex ? theme.BrandDark : theme.Black)};
+    color: ${({ sex }) => (sex ? theme.BrandDark : theme.Black)};
   }
 `;
 
@@ -149,7 +148,7 @@ export const SignupTextContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 10px;
-      color: ${({ theme }) => theme.Brand};
+      color: ${theme.Brand};
       font-size: 20px;
       font-weight: 600;
       .rightArrow {

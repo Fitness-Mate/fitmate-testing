@@ -69,7 +69,7 @@ export const NavButton = styled.button`
   border-radius: 12px;
   color: ${theme.Black};
   display: flex;
-  padding: 10px 24px;
+  padding: 10px 14px;
   justify-content: center;
   align-items: center;
   font-size: 15px;

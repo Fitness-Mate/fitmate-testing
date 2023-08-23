@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "./../../styles/theme";
 
 export const ProfileInputContainer = styled.div`
   width: 433px;
@@ -10,11 +11,11 @@ export const ProfileInputContainer = styled.div`
 
   // 경고 문구
   .profileInputWarning {
-    color: ${({ theme }) => theme.Error};
+    color: ${theme.Error};
     font-size: 16px;
   }
   .profileInputChecking {
-    color: ${({ theme }) => theme.Brand};
+    color: ${theme.Brand};
     font-size: 16px;
     font-weight: 500;
   }
@@ -22,7 +23,7 @@ export const ProfileInputContainer = styled.div`
     opacity: ${({ isValidState }) => (isValidState ? "1" : "0.3")};
     cursor: ${({ isValidState }) => (isValidState ? "pointer" : "default")};
     position: absolute;
-    color: ${({ theme }) => theme.Brand};
+    color: ${theme.Brand};
     font-size: 17px;
     font-weight: 700;
     letter-spacing: -0.34px;
@@ -34,10 +35,10 @@ export const ProfileInputContainer = styled.div`
 `;
 
 export const InputName = styled.span`
-  color: ${({ theme }) => theme.Black};
+  color: ${theme.Black};
   font-size: 20px;
   .essentialSymbol {
-    color: ${({ theme }) => theme.Error};
+    color: ${theme.Error};
     font-size: 18px;
   }
 `;
@@ -47,12 +48,16 @@ export const InputName = styled.span`
 
 export const ProfileInputContentWrapper = styled.input`
   &::-webkit-input-placeholder {
-    color: ${({ theme }) => theme.Gray50};
+    color: ${theme.Gray50};
   }
   border-radius: 10px;
   padding: 14px;
-  background: ${({ theme }) => theme.Gray10};
+  background: ${theme.Gray10};
   width: 100%;
-  color: ${({ theme }) => theme.Gray50};
+  color: ${theme.Gray50};
   font-size: 18px;
+  border: ${({ isFocused, isEmailState, name }) =>
+    !isFocused && isEmailState && name === "loginEmail"
+      ? `1.5px solid ${theme.Brand}`
+      : ""};
 `;

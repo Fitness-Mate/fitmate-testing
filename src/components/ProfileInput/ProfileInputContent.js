@@ -1,6 +1,6 @@
 import { useRecoilState } from "recoil";
 import { ProfileInputContentWrapper } from "./StyledProfileInput";
-import { validationState } from "../../recoil/atom";
+import { EmailState, validationState } from "../../recoil/atom";
 import ValidateTest from "./../../utils/exp";
 
 const ProfileInputContent = ({
@@ -10,6 +10,7 @@ const ProfileInputContent = ({
   setIsFocused,
 }) => {
   const [isValidState, setIsValidState] = useRecoilState(validationState);
+  const [isEmailState, setIsEmailState] = useRecoilState(EmailState);
 
   const handleChange = (e) => {
     const value = e.currentTarget.value;
@@ -19,7 +20,7 @@ const ProfileInputContent = ({
     // 유효성 검사
     const updatedValidationState = {
       ...isValidState,
-      [name]: [value, exp && exp.test(value), isValidState[name][2]],
+      [name]: [value, exp && exp.test(value)],
     };
     setIsValidState(updatedValidationState);
 
@@ -30,11 +31,7 @@ const ProfileInputContent = ({
     if (name.includes("password")) {
       setIsValidState((pre) => ({
         ...pre,
-        password2: [
-          updatedValidationState.password2[0],
-          passwordSame,
-          updatedValidationState[name][2],
-        ],
+        password2: [updatedValidationState.password2[0], passwordSame],
       }));
     }
   };
@@ -45,7 +42,8 @@ const ProfileInputContent = ({
       placeholder={isFocused ? "" : placeholder}
       name={name}
       isFocused={isFocused}
-      isValidState={isValidState[name]}
+      isEmailState={isEmailState}
+      isValidState={isValidState[name][1]}
       onFocus={() => {
         setIsFocused(true);
       }}

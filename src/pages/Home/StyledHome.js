@@ -23,6 +23,7 @@ export const HomeContent = styled.li`
 `;
 
 export const FirstContent = styled.div`
+  padding: 93px 0;
   display: flex;
   align-items: center;
   justify-content: center;
